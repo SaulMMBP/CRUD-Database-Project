@@ -1,4 +1,4 @@
-package xyz.saulmmbp.repositories;
+package xyz.saulmmbp.dao;
 
 import org.springframework.data.repository.CrudRepository;
 
