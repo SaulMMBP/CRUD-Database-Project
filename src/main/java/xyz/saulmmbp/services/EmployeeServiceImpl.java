@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import xyz.saulmmbp.dao.EmployeeRepository;
 import xyz.saulmmbp.entities.Employee;
-import xyz.saulmmbp.repositories.EmployeeRepository;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
