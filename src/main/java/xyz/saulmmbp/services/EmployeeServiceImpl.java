@@ -21,14 +21,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public List<Employee> findAll() {
-        List<Employee> employees = (List<Employee>) employeeRepository.findAll();
-        
-        return employees;
+        return employeeRepository.findAllByOrderByLastNameAsc();
     }
 
     @Override
     public Employee findById(int id) {
-        Optional<Employee> result = employeeRepository.findById(null);
+        Optional<Employee> result = employeeRepository.findById(id);
         
         Employee employee = result.orElseThrow(() -> new RuntimeException("Not Found Employee ID - " + id));
         
