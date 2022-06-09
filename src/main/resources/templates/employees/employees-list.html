@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS mine -->
+	<link th:href="@{/css/global.css}" rel="stylesheet">
+	<link th:href="@{/css/employees-list.css}" rel="stylesheet" />
+	
+	<!-- Load my javascript file -->
+	<script th:src="@{/js/employees-list.js}"></script>
+
+	<title>Employees Directory</title>
+</head>
+
+<body>
+	<header>
+		<h2>Employees Directory</h2>
+	</header>
+	
+	<main>
+		<!-- Add button -->
+		<a class="addbtn" th:href="@{/employees/addemployee}">Add Employee</a>
+		
+		<div class="table-div">
+			<table>
+				<thead>
+					<tr>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				
+				<tr th:each="employee : ${employees}">
+					<td th:text="${employee.firstName}" />
+					<td th:text="${employee.lastName}" />
+					<td th:text="${employee.email}" />
+					
+					<!-- Update and delete buttons -->
+					<td class="action-td">
+						<a class="updatebtn" th:href="@{/employees/updateemployee(employeeId=${employee.id})}">Update</a>
+						<a class="deletebtn" th:href="@{/employees/delete(employeeId=${employee.id})}" 
+								onclick="confirmAlert(event)">Delete</a>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<!-- Back button -->
+		<a class="back-btn" th:href="@{/}">Back</a>
+	</main>
+</body>
+</html>

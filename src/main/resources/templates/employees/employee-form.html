@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS mine -->
+	<link th:href="@{/css/global.css}" rel="stylesheet">
+	<link th:href="@{/css/employeeform.css}" rel="stylesheet" />
+	
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<header>
+		<h2>Employee Directory</h2>
+		<p>Save employee</p>
+	</header>
+	
+	<main>
+		<form action="#" th:action="@{/employees/save}" th:object="${employee}" method="POST">
+			<!-- Hidden employee id for update -->
+			<input type="hidden" th:field="*{id}">
+			
+			<!-- Input fields for save and update -->
+			<input type="text" th:field="*{firstName}" placeholder="First Name" />
+			<input type="text" th:field="*{lastName}" placeholder="Last Name" />
+			<input type="email" th:field="*{email}" placeholder="Email" />
+			
+			<!-- Submit button -->
+			<button type="submit">Save</button>
+		</form>
+		
+		<!-- Link for back to the employees list -->
+		<a class="back-btn" th:href="@{/employees/list}">Back to Employees List</a>
+	</main>
+</body>
+</html>
